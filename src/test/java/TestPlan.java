@@ -41,7 +41,6 @@ public class TestPlan {
         driver.get(Utils.BASE_URL);
         FirstPage webForme = new FirstPage(driver);
         webForme.setClickQuestions();
-
     }
 
     @Test(testName = "Verify functionality for How Do I Sing Up in Questions")
@@ -49,6 +48,7 @@ public class TestPlan {
         driver.get(Utils.BASE_URL);
         FirstPage webForme = new FirstPage(driver);
         webForme.setClickQuestions();
+        webForme.setClickHowDoISingUp();
     }
 
     @Test(testName = "Verify functionality for Start The Enrollment in Home Page")
@@ -58,7 +58,7 @@ public class TestPlan {
         webForme.setClickStartTheEnrollment();
     }
 
-    @Test(testName = "Verify functionality for Usetname in Account Information")
+    @Test(testName = "Verify functionality for Username in Account Information")
     public void VerifyUsername() {
         driver.get(Utils.BASE_URL);
         FirstPage webForm = new FirstPage(driver);
@@ -67,7 +67,7 @@ public class TestPlan {
         secondWebForm.WriteToUsernameLetter();
     }
 
-    @Test(testName = "Verify functionaliy for Next in Account Information")
+    @Test(testName = "Verify functionaliy for Next in Account Information ")
     public void  VerifyNext() {
         driver.get(Utils.BASE_URL);
         FirstPage webForm = new FirstPage(driver);
@@ -79,7 +79,6 @@ public class TestPlan {
         secondWebForm.WriteToPasswordLetter();
         secondWebForm.WriteToConfirmPasswordLetter();
         secondWebForm.ClickOnNextButton();
-
     }
 
     @Test(testName = "Verify functionality for Phone Number in Personal Information")
@@ -114,7 +113,7 @@ public class TestPlan {
         secondWebForme.ClickOnNextButton();
     }
 
-    @Test(testName = "Verify functionality for First Namme Last Name Username Password Confirm Passwors in Personal INformation")
+    @Test(testName = "Verify functionality for First Namme Last Name Username Password Confirm Passwors in Personal Information")
     public void VerifyFullPersonalInformation() {
         driver.get(Utils.BASE_URL);
         FirstPage webForme = new FirstPage(driver);
@@ -150,6 +149,54 @@ public class TestPlan {
         ContactPage thirdForm = new ContactPage(driver);
         thirdForm.setClickNextContactInformation();
 
+    }
+
+    @Test(testName = "Verify Next Button to go to next page Cours Option")
+    public void VerifyNextButtonToGoToCoursOptionPage() {
+        driver.get(Utils.BASE_URL);
+        FirstPage webForme = new FirstPage(driver);
+        webForme.setClickStartTheEnrollment();
+        Enrollment secondForm = new Enrollment(driver);
+        secondForm.NavigateToPageTwo();
+        ContactPage thirdForm = new ContactPage(driver);
+        thirdForm.NavigateToPageCourseOption();
+        CourseOption fourthForm = new CourseOption(driver);
+        fourthForm.setClickAutomationTesting();
+        fourthForm.setNextCourseOption();
+
+    }
+
+    @Test(testName = "Verify functionality for Payment Information page without all payment info")
+    private void VerifyFourPaymentFieldsOnPaymentInformation() {
+        driver.get(Utils.BASE_URL);
+        FirstPage webForme = new FirstPage(driver);
+        webForme.setClickStartTheEnrollment();
+        Enrollment secondForm = new Enrollment(driver);
+        secondForm.NavigateToPageTwo();
+        ContactPage thirdForm = new ContactPage(driver);
+        thirdForm.NavigateToPageCourseOption();
+        CourseOption fourthForm = new CourseOption(driver);
+        fourthForm.setClickAutomationTesting();
+        fourthForm.setNextCourseOption();
+        PaymentInformation fifthForm = new PaymentInformation(driver);
+        fifthForm.WriteToCardHolderLetter();
+
+    }
+
+    @Test(testName = "Verify functionaliti four Payment Information page with all payment info")
+    private void WriteAllCardInformationinPaymentInformationPage() {
+        driver.get(Utils.BASE_URL);
+        FirstPage webForme = new FirstPage(driver);
+        webForme.setClickStartTheEnrollment();
+        Enrollment secondForm = new Enrollment(driver);
+        secondForm.NavigateToPageTwo();
+        ContactPage thirdForm = new ContactPage(driver);
+        thirdForm.NavigateToPageCourseOption();
+        CourseOption fourthForm = new CourseOption(driver);
+        fourthForm.setClickAutomationTesting();
+        fourthForm.setNextCourseOption();
+        PaymentInformation fifthForm = new PaymentInformation(driver);
+        fifthForm.WriteAllCardInformation();
     }
 
 

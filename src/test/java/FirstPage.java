@@ -5,16 +5,16 @@ import org.openqa.selenium.support.FindBy;
 public class FirstPage extends PageObject {
 
     @FindBy(xpath = "/html/body/section[3]/div/div/div[1]/div/div/a")
-    private WebElement readmoreVirtual;
-
-    @FindBy(xpath = "/html/body/section[2]/div/div/h3")
-    private WebElement newletterHeader;
-
-    @FindBy(xpath = "/html/body/section[2]/div/div/div/input")
-    private WebElement newsLetterEmailField;
+    private WebElement readMoreVirtual;
 
     @FindBy(xpath = "/html/body/a")
     private WebElement returnVirtual;
+
+    @FindBy(xpath = "/html/body/section[2]/div/div/h3")
+    private WebElement newLetterHeader;
+
+    @FindBy(xpath = "/html/body/section[2]/div/div/div/input")
+    private WebElement newsLetterEmailField;
 
     @FindBy(xpath = "/html/body/nav/div/button/span")
     private WebElement clickNavbar;
@@ -23,19 +23,13 @@ public class FirstPage extends PageObject {
     private WebElement clickQuestions;
 
     @FindBy(xpath = "//*[@id=\"questions\"]/div[4]/h3/button")
-    private WebElement clickHowDoISingUp;
+    private WebElement clickHowDoISingUp;;
 
     @FindBy(xpath = "//*[@id=\"questions\"]/div/h2")
-    private WebElement newQuestionsField;
+    private WebElement useFrequentlyAskedQuestions;
 
     @FindBy(xpath = "/html/body/section[1]/div/div/div/a")
     private WebElement clickStartTheEnrollment;
-
-    @FindBy(xpath = "//*[@id=\"username\"]")
-    private WebElement newNameUsernameField;
-
-
-
 
 
     public FirstPage (WebDriver driver) {
@@ -43,26 +37,23 @@ public class FirstPage extends PageObject {
     }
 
     public void ClickOnVirtualReadMore() {
-        Utils.scrollToElement(driver, this.newletterHeader);
-        this.readmoreVirtual.click();
+        Utils.scrollToElement(driver, this.newLetterHeader);
+        this.readMoreVirtual.click();
     }
 
     public void setReturnVirtual() {
         this.returnVirtual.click();
     }
 
-    public void setClickNavbar() {
-        this.clickNavbar.click();
-    }
-
     public void setClickQuestions() {
         this.clickQuestions.click();
     }
 
-    public void setClickStartTheEnrollment() { this.clickStartTheEnrollment.click(); }
+    public void setClickStartTheEnrollment() {
+        this.clickStartTheEnrollment.click(); }
 
     public void setClickHowDoISingUp() {
-        Utils.scrollToElement(driver, this.clickHowDoISingUp);
+        Utils.scrollToElement(driver, this.useFrequentlyAskedQuestions);
         this.clickHowDoISingUp.click();
     }
 
