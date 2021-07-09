@@ -16,12 +16,13 @@ public class PaymentInformation extends PageObject{
     private WebElement setExpiryMounth;
     @FindBy(xpath = "//*[@id=\"year\"]/option[5]")
     private WebElement setExpiryYear;
+    @FindBy(xpath = "/html/body/div/div/section/div/form/div[4]/h3")
+    private WebElement paymentInformationHeader;
 
     public void WriteToCardHolderLetter() {
         this.newLetterCardHolder.sendKeys("xxx");
         Utils.scrollToElement(driver,setClickOnNext);
-        this.setClickOnNext.click();
-    }
+        this.setClickOnNext.click(); }
 
     public void WriteAllCardInformation() {
         this.newLetterCardHolder.sendKeys("zxz");
@@ -30,9 +31,11 @@ public class PaymentInformation extends PageObject{
         this.setExpiryMounth.click();
         this.setExpiryYear.click();
         Utils.scrollToElement(driver,setClickOnNext);
-        this.setClickOnNext.click();
-    }
+        this.setClickOnNext.click(); }
 
     public PaymentInformation(WebDriver driver) {super(driver);}
+
+    public String getPaymentInformationHeader() {
+        return this.paymentInformationHeader.getText();}
 
 }

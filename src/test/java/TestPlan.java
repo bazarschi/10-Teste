@@ -1,5 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -17,6 +18,7 @@ public class TestPlan {
         driver.get(Utils.BASE_URL);
         FirstPage webForme = new FirstPage(driver);
         webForme.ClickOnVirtualReadMore();
+        Assert.assertEquals(webForme.getVirtualHeader(),"Virtual");
     }
 
     @Test(testName = "Verify functionality for Return in Virtual")
@@ -27,6 +29,7 @@ public class TestPlan {
         Utils.waitForElementToLoad(5);
         Virtual secondPage = new Virtual(driver);
         secondPage.clickOnReturnToHompage();
+        Assert.assertEquals(webForme.getSubmitHeader(),"Submit");
     }
 
     @Test(testName = "Verify functionality for New Letter in Header")
@@ -34,6 +37,7 @@ public class TestPlan {
         driver.get(Utils.BASE_URL);
         FirstPage webForme = new FirstPage(driver);
         webForme.WriteToNewsletterEmail();
+        Assert.assertEquals(webForme.getSubmitHeader(),"Submit");
     }
 
     @Test(testName = "Verify functionality for Questions in Navbar")
@@ -41,6 +45,7 @@ public class TestPlan {
         driver.get(Utils.BASE_URL);
         FirstPage webForme = new FirstPage(driver);
         webForme.setClickQuestions();
+        Assert.assertEquals(webForme.getSubmitHeader(),"Submit");
     }
 
     @Test(testName = "Verify functionality for How Do I Sing Up in Questions")
@@ -49,6 +54,7 @@ public class TestPlan {
         FirstPage webForme = new FirstPage(driver);
         webForme.setClickQuestions();
         webForme.setClickHowDoISingUp();
+        Assert.assertEquals(webForme.getSubmitHeader(),"Submit");
     }
 
     @Test(testName = "Verify functionality for Start The Enrollment in Home Page")
@@ -56,6 +62,8 @@ public class TestPlan {
         driver.get(Utils.BASE_URL);
         FirstPage webForme = new FirstPage(driver);
         webForme.setClickStartTheEnrollment();
+        Enrollment webFormSecond = new Enrollment(driver);
+        Assert.assertEquals(webFormSecond.getPersonalInformationHeader(),"Personal information");
     }
 
     @Test(testName = "Verify functionality for Username in Account Information")
@@ -65,6 +73,8 @@ public class TestPlan {
         webForm.setClickStartTheEnrollment();
         Enrollment secondWebForm = new Enrollment(driver);
         secondWebForm.WriteToUsernameLetter();
+        Enrollment webFormSecond = new Enrollment(driver);
+        Assert.assertEquals(webFormSecond.getPersonalInformationHeader(),"Personal information");
     }
 
     @Test(testName = "Verify functionaliy for Next in Account Information ")
@@ -79,9 +89,11 @@ public class TestPlan {
         secondWebForm.WriteToPasswordLetter();
         secondWebForm.WriteToConfirmPasswordLetter();
         secondWebForm.ClickOnNextButton();
+        Enrollment webFormSecond = new Enrollment(driver);
+        Assert.assertEquals(webFormSecond.getPersonalInformationHeader(),"Personal information");
     }
 
-    @Test(testName = "Verify functionality for Phone Number in Personal Information")
+    @Test(testName = "Verify functionality for Phone Number in Contact Information")
     public void VerifyPhoneNumber() {
         driver.get(Utils.BASE_URL);
         FirstPage webForm = new FirstPage(driver);
@@ -89,6 +101,8 @@ public class TestPlan {
         Enrollment secondWebForm = new Enrollment(driver);
         secondWebForm.NavigateToPageTwo();
         secondWebForm.WriteToPhoneNumberNumbers();
+        ContactPage webFormSecond = new ContactPage(driver);
+        Assert.assertEquals(webFormSecond.getContactInformationHeader(),"Contact information");
 
     }
 
@@ -99,6 +113,8 @@ public class TestPlan {
         webForme.setClickStartTheEnrollment();
         Enrollment secondWebForm = new Enrollment(driver);
         secondWebForm.WriteToLastNameLetter();
+        Enrollment webFormSecond = new Enrollment(driver);
+        Assert.assertEquals(webFormSecond.getPersonalInformationHeader(),"Personal information");
     }
 
     @Test(testName = "Verify functionality for First Name Second Name Username in Personal Information")
@@ -111,6 +127,8 @@ public class TestPlan {
         secondWebForme.WriteToLastNameLetter();
         secondWebForme.WriteToUsernameLetter();
         secondWebForme.ClickOnNextButton();
+        Enrollment webFormSecond = new Enrollment(driver);
+        Assert.assertEquals(webFormSecond.getPersonalInformationHeader(),"Personal information");
     }
 
     @Test(testName = "Verify functionality for First Namme Last Name Username Password Confirm Passwors in Personal Information")
@@ -125,6 +143,8 @@ public class TestPlan {
         secondWebForme.WriteToPasswordLetter();
         secondWebForme.WriteToConfirmPasswordLetter();
         secondWebForme.ClickOnNextButton();
+        Enrollment webFormSecond = new Enrollment(driver);
+        Assert.assertEquals(webFormSecond.getPersonalInformationHeader(),"Personal information");
     }
 
     @Test(testName = "Verify functionality for Email Field in Contact Information")
@@ -137,6 +157,8 @@ public class TestPlan {
         Utils.waitForElementToLoad(5);
         ContactPage thirdForm = new ContactPage(driver);
         thirdForm.WriteToEmailLetter();
+        ContactPage webFormSecond = new ContactPage(driver);
+        Assert.assertEquals(webFormSecond.getContactInformationHeader(),"Contact information");
     }
 
     @Test(testName = "Verify Next Button without Contact Cnformation")
@@ -148,6 +170,8 @@ public class TestPlan {
         secondForm.NavigateToPageTwo();
         ContactPage thirdForm = new ContactPage(driver);
         thirdForm.setClickNextContactInformation();
+        ContactPage webFormSecond = new ContactPage(driver);
+        Assert.assertEquals(webFormSecond.getContactInformationHeader(),"Contact information");
 
     }
 
@@ -163,6 +187,8 @@ public class TestPlan {
         CourseOption fourthForm = new CourseOption(driver);
         fourthForm.setClickAutomationTesting();
         fourthForm.setNextCourseOption();
+        PaymentInformation webFormSecond = new PaymentInformation(driver);
+        Assert.assertEquals(webFormSecond.getPaymentInformationHeader(),"Payment information");
 
     }
 
@@ -180,6 +206,8 @@ public class TestPlan {
         fourthForm.setNextCourseOption();
         PaymentInformation fifthForm = new PaymentInformation(driver);
         fifthForm.WriteToCardHolderLetter();
+        PaymentInformation webFormSecond = new PaymentInformation(driver);
+        Assert.assertEquals(webFormSecond.getPaymentInformationHeader(),"Payment information");
 
     }
 
@@ -197,6 +225,9 @@ public class TestPlan {
         fourthForm.setNextCourseOption();
         PaymentInformation fifthForm = new PaymentInformation(driver);
         fifthForm.WriteAllCardInformation();
+        Succes webFormeSeccond =new Succes(driver);
+        Assert.assertEquals(webFormeSeccond.getSuccesHeader(),"Success!");
+
     }
 
 

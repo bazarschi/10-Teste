@@ -7,27 +7,22 @@ public class Enrollment extends PageObject {
 
     @FindBy(xpath = "/html/body/div/div/section/div/form/div[1]/button")
     private WebElement clickNextButton;
-
     @FindBy(xpath = "//*[@id=\"phone\"]")
     private WebElement newsNumbersPhoneNumberField;
-
     @FindBy(xpath = "/html/body/div/div/section/div/form/div[1]/button")
     private WebElement clickNext;
-
     @FindBy(xpath = "//*[@id='firstName']")
     private WebElement firstNameField;
-
     @FindBy(xpath = "//*[@id=\"lastName\"]")
     private WebElement lastNameField;
-
     @FindBy(xpath = "//*[@id=\"username\"]")
     private WebElement userNameField;
-
     @FindBy(xpath = "//*[@id=\"password\"]")
     private WebElement passwordField;
-
     @FindBy(xpath = "//*[@id=\"cpassword\"]")
     private WebElement confirmPasswordField;
+    @FindBy(xpath = "/html/body/div/div/section/div/form/div[1]/h3")
+    private WebElement personalInformationHeader;
 
 
 
@@ -37,16 +32,13 @@ public class Enrollment extends PageObject {
 
     public void ClickOnNextButton() {
         Utils.scrollToElement(driver, this.clickNextButton);
-        this.clickNextButton.click();
-    }
+        this.clickNextButton.click(); }
 
     public void WriteToPhoneNumberNumbers() {
-        this.newsNumbersPhoneNumberField.sendKeys("12345");
-    }
+        this.newsNumbersPhoneNumberField.sendKeys("12345"); }
 
     public void ClickOnNext() {
-        this.clickNext.click();
-    }
+        this.clickNext.click(); }
 
     public void NavigateToPageTwo() {
         // Populeaza First Name, Last Name, Username, Password si Confirm Password
@@ -57,8 +49,7 @@ public class Enrollment extends PageObject {
         this.confirmPasswordField.sendKeys("fsgdfh");
         // Click butonul de next
         Utils.scrollToElement(driver, clickNext);
-        this.clickNext.click();
-    }
+        this.clickNext.click(); }
 
     public void WriteToNameLetter() {
         this.lastNameField.sendKeys("jdh");
@@ -78,6 +69,11 @@ public class Enrollment extends PageObject {
 
     public void WriteToConfirmPasswordLetter() {
         this.confirmPasswordField.sendKeys("djd");
+
+    }
+
+    public String getPersonalInformationHeader() {
+        return this.personalInformationHeader.getText();
     }
 
 }
