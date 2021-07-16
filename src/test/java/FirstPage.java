@@ -35,30 +35,20 @@ public class FirstPage extends PageObject {
 
     public void ClickOnVirtualReadMore() {
         Utils.scrollToElement(driver, this.newLetterHeader);
-        this.readMoreVirtual.click(); }
-
-    public void setReturnVirtual() {
-        this.returnVirtual.click();
+        this.readMoreVirtual.click();
     }
-
     public void setClickQuestions() {
         this.clickQuestions.click();
     }
-
     public void setClickStartTheEnrollment() {
-        this.clickStartTheEnrollment.click(); }
-
+        this.clickStartTheEnrollment.click();
+    }
     public void setClickHowDoISingUp() {
         Utils.scrollToElement(driver, this.useFrequentlyAskedQuestions);
-        this.clickHowDoISingUp.click(); }
-
+        this.clickHowDoISingUp.click();
+    }
     public void WriteToNewsletterEmail() {
         this.newsLetterEmailField.sendKeys("hdsahdhsa");
-    }
-
-    public void ClickonQuestions() {
-        Utils.scrollToElement(driver,this.clickQuestions );
-        this.clickHowDoISingUp.click();
     }
     public String getVirtualHeader() {
         return this.virtualHeader.getText();

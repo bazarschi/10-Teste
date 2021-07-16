@@ -34,11 +34,9 @@ public class Enrollment extends PageObject {
         Utils.scrollToElement(driver, this.clickNextButton);
         this.clickNextButton.click(); }
 
-    public void WriteToPhoneNumberNumbers() {
-        this.newsNumbersPhoneNumberField.sendKeys("12345"); }
+    public void WriteToPhoneNumberNumbers() { this.newsNumbersPhoneNumberField.sendKeys("12345"); }
 
-    public void ClickOnNext() {
-        this.clickNext.click(); }
+    public void ClickOnNext() { this.clickNext.click(); }
 
     public void NavigateToPageTwo() {
         // Populeaza First Name, Last Name, Username, Password si Confirm Password
@@ -68,9 +66,7 @@ public class Enrollment extends PageObject {
     }
 
     public void WriteToConfirmPasswordLetter() {
-        this.confirmPasswordField.sendKeys("djd");
-
-    }
+        this.confirmPasswordField.sendKeys("djd"); }
 
     public String getPersonalInformationHeader() {
         return this.personalInformationHeader.getText();

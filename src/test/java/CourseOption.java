@@ -18,9 +18,6 @@ public class CourseOption extends PageObject {
 
     public void setNextCourseOption() {this.setNextCourseOption.click();}
 
-    public String getPaymentInformationHeader() {
-        return this.paymentInformationHeader.getText();
-    }
 
 
 }
